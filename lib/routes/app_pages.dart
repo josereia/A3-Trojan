@@ -1,3 +1,4 @@
+import 'package:calculator/bindings/calc_page_binding.dart';
 import 'package:calculator/routes/app_routes.dart';
 import 'package:calculator/ui/pages/calc_page.dart';
 import 'package:get/get.dart';
@@ -7,6 +8,7 @@ class AppPages {
     GetPage(
       name: AppRoutes.initial,
       page: () => const CalcPage(),
+      binding: CalcPageBinding(),
     ),
   ];
 }

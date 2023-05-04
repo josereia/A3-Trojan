@@ -1,5 +1,6 @@
 import 'package:calculator/ui/themes/app_theme_extensions.dart';
 import 'package:flutter/material.dart';
+import 'package:ionicons/ionicons.dart';
 
 enum ButtonWidgetColors {
   primary,
@@ -7,13 +8,15 @@ enum ButtonWidgetColors {
 }
 
 class ButtonWidget extends StatefulWidget {
-  final String text;
+  final String? text;
+  final IconData? icon;
   final Function()? onPressed;
   final ButtonWidgetColors? color;
 
   const ButtonWidget({
     super.key,
-    required this.text,
+    this.text,
+    this.icon,
     this.onPressed,
     this.color,
   });
@@ -83,11 +86,27 @@ class _ButtonWidgetState extends State<ButtonWidget> {
               ),
             ),
             child: Center(
-              child: Text(
-                widget.text,
-                style: theme.textTheme.bodyMedium?.copyWith(
-                  color: foregroundColor,
-                ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Visibility(
+                    visible: widget.text != null,
+                    child: Text(
+                      widget.text ?? "",
+                      style: theme.textTheme.bodyMedium?.copyWith(
+                        color: foregroundColor,
+                      ),
+                    ),
+                  ),
+                  Visibility(
+                    visible: widget.icon != null,
+                    child: Icon(
+                      widget.icon,
+                      color: colors.text,
+                    ),
+                  ),
+                ],
               ),
             ),
           ),

@@ -44,7 +44,7 @@ abstract class AppTheme {
       shadowColor: colors.shadow,
       scaffoldBackgroundColor: colors.background,
       iconTheme: IconThemeData(size: metrics.iconSize),
-      textTheme: GoogleFonts.poppinsTextTheme(baseTheme.textTheme).copyWith(
+      textTheme: GoogleFonts.robotoTextTheme(baseTheme.textTheme).copyWith(
         bodySmall: TextStyle(
           fontSize: 12,
           fontWeight: FontWeight.normal,
