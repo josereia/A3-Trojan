@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:calculator/app_builder.dart';
 import 'package:calculator/routes/app_pages.dart';
@@ -10,8 +12,10 @@ import 'package:get/get.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  await Window.initialize();
-  await Window.setEffect(effect: WindowEffect.acrylic);
+  if (!Platform.isLinux) {
+    await Window.initialize();
+    await Window.setEffect(effect: WindowEffect.acrylic);
+  }
 
   runApp(const MyApp());
 

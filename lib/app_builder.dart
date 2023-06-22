@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:calculator/ui/themes/app_theme_extensions.dart';
 import 'package:calculator/ui/widgets/window_header_widget.dart';
 import 'package:flutter/material.dart';
@@ -23,11 +25,12 @@ class AppBuilder extends StatelessWidget {
               child: child,
             ),
           ),
-          const Positioned(
+          Positioned(
             top: 0,
             left: 0,
             right: 0,
-            child: WindowHeaderWidget(),
+            child:
+                Platform.isWindows ? const WindowHeaderWidget() : Container(),
           ),
         ],
       ),
