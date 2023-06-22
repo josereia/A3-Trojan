@@ -1,6 +1,5 @@
 import 'package:calculator/ui/themes/app_theme_extensions.dart';
 import 'package:flutter/material.dart';
-import 'package:ionicons/ionicons.dart';
 
 enum ButtonWidgetColors {
   primary,
